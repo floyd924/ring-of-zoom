@@ -11,8 +11,6 @@ import './styles/brain.scss';
 interface IBrainState {
     displayingPage: Page,
     players: string[],
-    // currentPlayer: string,
-    // nextPlayer: string,
     rules: Map<number, Rule>
 }
 
@@ -20,8 +18,6 @@ export class Brain extends React.Component {
     state: IBrainState = {
         displayingPage: Page.Home,
         players: [],
-        // currentPlayer: "player 1",
-        // nextPlayer: "player 2",
         rules: new Map<number, Rule>()
     }
 
@@ -56,20 +52,18 @@ export class Brain extends React.Component {
     }
 
     startNewGame = (players: string[], rules: Map<number, Rule>) => {
-        // console.log("updating Brain with new rules and players, ready to start new game")
         this.setState({displayingPage: Page.Game, rules: rules, players: players})
     }
 
     render() {
         return(
             <div className="brain-container">
-                {this.state.displayingPage !== Page.Home ? 
+                {this.state.displayingPage !== Page.Home && 
                     <div className="decoration-container">
                         <div className="decoration-one side"></div>
                         <div className="decoration-one top"></div>
                         <div className="decoration-one opposite"></div>
-                    </div>
-                : null}
+                    </div>}
                 {this.getActivePage()}
             </div>
         )

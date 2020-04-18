@@ -72,7 +72,6 @@ export class Game extends React.Component<IGameProps> {
         }
 
         if(this.state.usedCards.length === this.state.breakTheCircle){
-            // if(this.state.deck.length === 50){
             // this player has broken the circle!
             this.setState({circleIsBroken: true})
         }
@@ -104,7 +103,7 @@ export class Game extends React.Component<IGameProps> {
 
     getCardImage = (): JSX.Element => {
         return(
-            <img src={this.state.currentCard? this.state.currentCard.image : cup} />
+            <img alt="" src={this.state.currentCard? this.state.currentCard.image : cup} />
         )
     }
 
@@ -145,7 +144,7 @@ export class Game extends React.Component<IGameProps> {
         allCards.sort(sortByCardNumber).reverse();
         allCards.forEach((usedCard: Card) => {
             elementsToReturn.push(
-                <img className="played-card-image" src={usedCard.image} />
+                <img className="played-card-image" alt="" src={usedCard.image} />
             )
         })
         return elementsToReturn;
@@ -196,22 +195,17 @@ export class Game extends React.Component<IGameProps> {
                         </div>
 
                         <div className="game-info">
-                            {this.state.circleIsBroken ? <p>Oh no! {this.state.currentPlayer} just broke the circle!</p>:null}
-                            {this.state.currentCard ? <p>{this.state.currentPlayer} drew the {this.state.currentCard.value} of {this.state.currentCard.suit}!</p>:null}
+                            {this.state.circleIsBroken && <p>Oh no! {this.state.currentPlayer} just broke the circle!</p>}
+                            {this.state.currentCard && <p>{this.state.currentPlayer} drew the {this.state.currentCard.value} of {this.state.currentCard.suit}!</p>}
 
-                            {this.state.currentCard ?     
+                            {this.state.currentCard &&     
                             <div className="card-rules">
                                 <p className="rule-name">{this.getRuleName()}</p>
                                 <p className="rule-instructions">{this.getRuleInstructions()}</p>
-                            </div>
-                            : null }
+                            </div>}            
                                 
-                                
-                                
-                            {this.state.usedCards.length !== 52 ? this.getNextPlayerGreeting() : null}
-                            
-                            
-                            
+                            {this.state.usedCards.length !== 52 && this.getNextPlayerGreeting()}
+                                                
                             {this.state.usedCards.length === 52 ? 
                             <div className="game-over">
                                 <h3>Game over!</h3>

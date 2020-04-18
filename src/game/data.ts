@@ -4,8 +4,8 @@ export const getDefaultRules = (): Rule[] => {
     const defaultRules: Rule[] = [
         {
             id: 1,
-            name: "Digital Waterfall",
-            description: "Start drinking at the same time. Drink until the person in the top/left of your screen stops."
+            name: "Waterfall",
+            description: "Start drinking once the player before you starts drinking. You may only stop when they stop"
         },
         {
             id: 2,
@@ -93,26 +93,9 @@ export const getAllRules = (): Rule[] => {
             name: "Bath of shame",
             description: "This player is banished to their bath or shower until the next time this card is drawn"
         },
-        // {
-        //     id: 18,
-        //     name: "Shots for one",
-        //     description: "This player takes a shot"
-        // },
-        // {
-        //     id: 19,
-        //     name: "Shots for all",
-        //     description: "All players must do a shot"
-        // },
-        // {
-        //     name: "Shots for one, shots for all",
-        //     description: "Flip a coin. If heads, take a shot. If tails, everyone else take a shot"
-        // },
-
-
-
-        // FOR SOME ANNOYING FUCKING REASON
         // the IDs need to be in order
-        // otherwise it's not sving to the drop down properly
+        // otherwise it's not saving to the drop down properly
+        // investigate why
         {
             id: 18,
             name: "50/50",
@@ -122,15 +105,7 @@ export const getAllRules = (): Rule[] => {
             id: 19,
             name: "It was fuckin one of yous",
             description: "Pick another player. Flip a coin. If heads, you must take 3 drinks. If tails, they must instead"
-        },
-        // {
-        //     name: "Above us all",
-        //     description: "Take 2 drinks while standing on an item of furniture (make sure we can see)"
-        // },
-        // {
-        //     name: "Mystery tipple",
-        //     description: "Show us your alcohol stash. We'll pick something for you to shot/drink"
-        // }
+        }
     ]
     const allRules = [...getDefaultRules(), ...nonDefaultRules];
     return allRules;

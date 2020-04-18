@@ -1,7 +1,7 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import { Rule } from './interfaces/IRule';
 import './styles/setup.scss';
-import { getAllRules, getDefaultRules } from './data';
+import { getAllRules } from './data';
 
 interface ISetupProps {
     allRules: Rule[],
@@ -12,7 +12,6 @@ interface ISetupProps {
 interface ISetupState {
     assignedRules: Map<number, Rule>,
     playerMap: Map<number, string>,
-    // players: string[],
     numberOfPlayers: number
 }
 
@@ -21,7 +20,6 @@ export class Setup extends React.Component<ISetupProps> {
     state: ISetupState = {
         assignedRules: new Map(this.props.defaultAssignedRules),
         playerMap: new Map<number, string>(),
-        // players: [],
         numberOfPlayers: 2
     }
 
@@ -49,32 +47,15 @@ export class Setup extends React.Component<ISetupProps> {
     }
 
     getDropdownOptions = (currentCardIndex: number): JSX.Element[] => {
-        // currentCardIndex will only ever be 1-13
-        // this method should return 20
         const elementsToReturn: JSX.Element[] = [];
 
         const allRules: Rule[] = getAllRules();
 
         for (let i = 0; i < allRules.length; i++) {
             const rule = allRules[i];
-
-
             const currentRule = this.state.assignedRules.get(currentCardIndex+1);
-            // console.log("rules in loop is", rule);
-            // console.log("selected rule is ", this.state.assignedRules.get(currentCardIndex+1))
-            
-            // if(currentRule?.id == 20){
-            //     console.log("Rule 50/50 is currently selected in State")
-            //     if(currentRule != undefined && currentRule.id === rule.id){
-            //         console.log("its a 50/50 match!")
-            //     }
-            // }
-            if(currentRule != undefined && currentRule.id === rule.id){
-                // console.log("setting selected rule to be", rule.id)
-                // console.log("its a match!")
-                if(currentRule.id == 20){
-                    // console.log("YES WE HAVE A MATCH ON ID 20")
-                }
+
+            if(currentRule !== undefined && currentRule.id === rule.id){
                 elementsToReturn.push(
                     <option key={i+1} value={i} selected={true}>{rule.name}</option>
                 )
@@ -82,13 +63,8 @@ export class Setup extends React.Component<ISetupProps> {
                 elementsToReturn.push(
                     <option key={i+1} value={i}>{rule.name}</option>
                 )
-            }
-
-            
-            
-            
+            }  
         }
-
 
         return elementsToReturn;
     }
@@ -96,7 +72,6 @@ export class Setup extends React.Component<ISetupProps> {
     getRuleSelectionElements = (): JSX.Element[] => {
         const elementsToReturn: JSX.Element[] = [];
         const cards: string[] = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
-
 
         // event.target.value is this SELECT tag. Value = card number to start with
         // event.target contains 20 children, and when one is selected the Event.target.value
@@ -113,7 +88,6 @@ export class Setup extends React.Component<ISetupProps> {
                     </select>
                 </div>
             )
-            
         }
 
         return elementsToReturn;
@@ -143,45 +117,27 @@ export class Setup extends React.Component<ISetupProps> {
     }
 
     startNewGame = () => {
-
         const players: string[] = [];
         for (let i = 0; i < this.state.playerMap.size; i++) {
             const player: string | undefined = this.state.playerMap.get(i+1);
-            if(player != undefined){
+            if(player !== undefined){
                 players.push(player);
             }            
         }
-
-
         this.props.startGameMethod(players, this.state.assignedRules);
     }
 
     resetRules = () => {
         this.setState({assignedRules: this.props.defaultAssignedRules})
-        console.log("THIS METHOD DOES NOT WORK YET")
     }
 
-    setRule = (event: any, currentCardIndex: number) => { // the fuck is this supposed to be?
-        // also number should probs be lower case everywhere else, too.....
-        
-        // console.log("logging a change to:", event.target.value)
+    setRule = (event: any, currentCardIndex: number) => { // the heck is this supposed to be?
         const rules: Map<number, Rule> = this.state.assignedRules;
-
-        // this is correct
-        console.log("new rule to set will be" , getAllRules()[event.target.value])
-
-        // this is correct
-        // console.log("current card index is", currentCardIndex)
-
-        console.log("settin a new rule for card number:", currentCardIndex+1)
         rules.set(currentCardIndex+1, getAllRules()[event.target.value])
         this.setState({assignedRules: rules})
-        // console.log("saving new rules to state")
     }
 
     render() {
-        // console.log("inside render method, state is", this.state.assignedRules)
-        console.log("this.props.defaultRules are", this.props.defaultAssignedRules)
         return(
             <div className="setup-container">
                 <div className="setup-left">
