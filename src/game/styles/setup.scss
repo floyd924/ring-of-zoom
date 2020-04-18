@@ -1,0 +1,211 @@
+@import './colours.scss';
+@import './shared.scss';
+
+.setup-container{
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    
+    .setup-left{
+        box-sizing: border-box;
+        height: 96%;
+        width: 25%;
+        overflow: scroll;
+        padding: 30px;
+
+        .player-row{
+            margin-bottom: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            .name-input{
+                width: 50px;
+            }
+            p{
+                margin: 0px;
+            }
+        }
+
+        .player-counter{
+
+            .symbol {
+                border: 1px solid grey;
+                width: 20px;
+                max-height: 23px;
+                border-radius: 4px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+
+            p.players-count-prompt{
+                font-size: 14px;
+                margin-right: 5px;
+            }
+
+            .players-count{
+                margin: 0px 10px;
+            }
+        }
+    }
+
+
+
+
+
+
+    .setup-right{
+        box-sizing: border-box;
+        height: 100%;
+        width: 75%;
+        // border: 5px solid salmon;
+
+        .rules-container{
+            box-sizing: border-box;
+            // border: 3px solid black;
+            height: 85%;
+
+            display: flex;
+            flex-direction: row;
+            
+            .rules-container-left{
+                // border: 3px solid green;
+                height: 100%;
+                box-sizing: border-box;
+                width: 40%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+
+
+                .rule-row{
+                    // border: 3px solid red;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    // height: calc(100%/15);
+
+                    .card-value{
+                        margin: 0;
+                    }
+                    .rule-dropdown{
+                        margin-top: 3px;
+                    }
+                }
+            }
+            .rules-container-right{
+                // border: 3px solid blue;
+                padding-right: 20px;
+                padding-bottom: 20px;
+                height: 100%;
+                box-sizing: border-box;
+                width: 60%;
+
+                .reset-container{
+
+                    // border: 3px solid red;
+                    box-sizing: border-box;
+                    height: 15%;
+                    display: flex;
+                    justify-content: center;
+                    // border: 5px solid pink;
+                    padding: 5px;
+                    
+                    .reset-rules-button{
+                        width: 80%;
+                        background-color: $ZOOM_STRONG_BLUE;
+                        align-self: center;
+                        border-radius: 40px;
+                        display: flex;
+                        // align-content: center;
+                        justify-content: center;
+
+                        h3{
+                            margin: 0px;
+                            align-self: center;
+                            color: #FFF;
+                        }
+        
+                        &:hover{
+                            cursor: pointer;
+                            background-color: blue;
+                            border: 2px solid #FFF;
+                        }
+
+                    }
+                }
+
+                .suggestions-container{
+                    // border: 5px solid hotpink;
+                    margin: 5px;
+                    height: 88%;
+                    box-sizing: border-box;
+                    overflow: scroll;
+
+                    .rule-container{
+
+                        box-sizing: border-box;
+                        border: 1px solid grey;
+                        border-radius: 4px;
+                        margin-bottom: 5px;
+
+                        .rule-name{
+                            font-weight: bold;
+                            margin: 0;
+                            text-align: left;
+                            margin-left: 20px;
+                            font-size: 14px;
+                        }
+
+                        .rule-description{
+                            margin: 0;
+                            font-size: 11px;
+
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+        .start-container{
+            box-sizing: border-box;
+            // border: 3px solid red;
+            height: 15%;
+            display: flex;
+            justify-content: center;
+
+            .start-game-button{
+                align-self: center;
+                background-color: $ZOOM_STRONG_BLUE;
+                width: 70%;
+                height: 80%;
+                // margin-top:
+                // margin-left: 15%;
+                border-radius: 40px;
+                display: flex;
+                // align-content: center;
+                justify-content: center;
+
+                h2{
+                    margin: 0px;
+                    align-self: center;
+                    color: #FFF;
+                }
+
+                &:hover{
+                    cursor: pointer;
+                    background-color: blue;
+                }
+
+                // color: #FFF;
+                // font-family:
+            }
+        }
+    }
+}

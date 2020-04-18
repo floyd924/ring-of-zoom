@@ -1,0 +1,52 @@
+@import './colours.scss';
+@import './shared.scss';
+
+.home-container {
+    height: 100%;
+    box-sizing: border-box;
+    background: radial-gradient(at bottom right, #FFF, $ZOOM_STRONG_BLUE);
+    padding: 40px 60px;
+
+    .app-title{
+        margin: 0px;
+        color: #FFF;
+        font-size: 60px;
+        line-height: 60px;
+    }
+
+    .ring{
+        margin-left: -60px;
+    }
+    .zoom{
+        margin-right: -60px;
+    }
+
+    .start-container{
+
+        margin-top: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        .start-button{
+            border: 5px solid white;
+            width: 150px;
+            height: 150px;
+            border-radius: 150px;
+            background-color: lawngreen;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        
+            &:hover{
+                cursor: pointer;
+                background-color: green;
+                color: #FFF
+            }
+
+            .start-prompt{
+
+            }
+        }
+    }
+}

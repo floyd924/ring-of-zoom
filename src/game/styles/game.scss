@@ -1,0 +1,154 @@
+@import './colours.scss';
+@import './shared.scss';
+
+.game-container{
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .game-top{
+        height: 85%;
+        box-sizing: border-box;
+
+        .card-count-container{
+            height: 10%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+            .cards-count-container{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .cards-count-text{
+                    margin: 0px;
+                }
+            }
+        }
+        .game-content{
+            height: 90%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+
+            .current-card{
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                justify-content: center;
+                width: 20%;
+                padding: 30px;
+
+                img{
+                    height: 220px;
+                }
+            }
+
+            .game-info{
+                width: 60%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+
+                .card-rules{
+                    border: 3px solid grey;
+                    background-color: wheat;
+                    border-radius: 8px;
+                    width: 80%;
+                    padding: 0px 30px;
+
+                    .rule-name > p{
+                        line-height: 10px;
+                        font-family: Apple Chancery, cursive;
+                        font-size: 20px;
+                        font-weight: bold;
+                        text-decoration: underline;
+                    }
+                    .rule-instructions >p{
+                        font-family: Apple Chancery, cursive;
+                    }
+                }
+
+                .game-over{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    .restart{
+                        background-color: forestgreen;
+                        &:hover{
+                            background-color: darkgreen;
+                        }
+                    }
+                }
+
+                .button{
+                    width: 50%;
+                    height: 50px;
+                    background-color: $ZOOM_STRONG_BLUE;
+                    align-self: center;
+                    border-radius: 40px;
+                    display: flex;
+                    justify-content: center;
+    
+                    h3{
+                        margin: 0px;
+                        align-self: center;
+                        color: #FFF;
+                    }
+    
+                    &:hover{
+                        cursor: pointer;
+                        background-color: blue;
+                    }
+    
+                }
+            }
+
+            .played-cards-container{
+                width: 20%;
+                box-sizing: border-box;
+
+                .played-card-image{
+                    height: 50px;
+                }
+                img:not(:first-child){
+                        // this appears to be maxing out
+                        margin-top: -40px;
+                }
+                img:nth-child(2){
+                    // border: 5px solid blue;
+                }
+            }
+        }
+    }
+
+    .game-bottom{
+        height: 15%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        .player{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            // font-size: 30px; // will this need to be smaller if there are 8+ players?
+            font-size: 16px;
+
+            .player-name{
+                margin: 0px;
+            }
+        }
+
+        .current-player{
+            text-decoration: underline;
+            font-weight: bold;
+            color: red;
+        }
+    }
+}

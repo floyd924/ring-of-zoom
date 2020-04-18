@@ -1,0 +1,38 @@
+@import './colours.scss';
+@import './shared.scss';
+
+.brain-container{
+    height: 100vh;
+    box-sizing: border-box;
+
+    .decoration-container{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+
+    .decoration-one{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        background: linear-gradient($ZOOM_STRONG_BLUE, #FFF);
+        clip-path: polygon(0 0%, 0% 100%, 16% 100%);
+        z-index: -1;
+    }
+
+    .top{
+        transform: rotate(90deg);
+        // to make the top banner cross the whole screen, swap the width for the height
+        // height: 100vw;
+        width: 100vh;
+        z-index: -2;
+        right: 0;
+    }
+
+    .opposite{
+        transform: rotate(180deg);
+        z-index: -3;
+    }
+}
