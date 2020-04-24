@@ -8,6 +8,8 @@ run `npm install` inside the project directory to install all required packages
 
 run `npm start` to launch the application on localhost:3000
 
+When screensharing on Zoom we found a 150% magnification worked best in chrome.
+
 ## Adding/modifying further data
 
 There is no back end. All data is stored in `src/game/data.ts`. Modify this file directly to add, update, or delete any rules.
